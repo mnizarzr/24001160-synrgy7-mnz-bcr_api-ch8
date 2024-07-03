@@ -7,7 +7,7 @@ import knexInstance from "./src/config/db";
 (async () => {
   Model.knex(knexInstance);
 
-  const { PORT = 3000, HOST = "127.0.0.1" } = process.env;
+  const { PORT = 3000, HOST = "0.0.0.0" } = process.env;
 
   console.log(cloudinary)
   const app = await createServer();

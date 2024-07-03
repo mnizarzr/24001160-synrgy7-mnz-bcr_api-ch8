@@ -1,12 +1,16 @@
 import knex from "knex";
 
+const { DATABASE_URL, DB_HOST, DB_PORT, DB_USER, DB_PWD, DB_DBNAME } = process.env
+
 const knexInstance = knex({
     client: "pg",
     connection: {
-        database: "binar_cr",
-        user: "root",
-        password: "root",
-        port: 5432,
+        connectionString: DATABASE_URL,
+        host: DB_HOST,
+        port: DB_PORT ? parseInt(DB_PORT) : 5432,
+        user: DB_USER,
+        database: DB_DBNAME,
+        password: DB_PWD,
     },
 });
 
